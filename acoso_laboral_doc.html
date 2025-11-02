@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Acoso Laboral - Javier Benítez Láinez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem;
+        }
+        
+        .alert strong {
+            color: #856404;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        section {
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        h4 {
+            color: #555;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.6rem;
+            top: 1.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .responsible {
+            background: #ffe6e6;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .responsible strong {
+            color: #c82333;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .impact-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .legal-section {
+            background: #e8f4f8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .legal-item {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        
+        ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+        
+        ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .evidence-box {
+            background: #e7f3ff;
+            border: 2px solid #3498db;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .represalia-box {
+            background: #ffe6e6;
+            border: 3px solid #dc3545;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media print {
+            nav {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Documentación de Acoso Laboral</h1>
+            <h2 style="margin-top: 1rem; font-size: 1.8rem;">Javier Benítez Láinez</h2>
+            <p style="margin-top: 0.5rem;">Miembro del Comité de Empresa - UGT</p>
+            <p>Formación y Gestión de Granada</p>
+            <p style="margin-top: 1rem; font-weight: bold;">Periodo: 2020 - 2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Documento actualizado: 2 de noviembre de 2025</p>
+        </header>
+        
+        <div class="alert">
+            <strong>⚠️ Documento Confidencial:</strong> Esta documentación contiene información sensible sobre un caso de acoso laboral continuado con represalias documentadas. Está destinada para dirección del centro, representación sindical, Inspección de Trabajo y asesoría legal.
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#resumen">Resumen</a></li>
+                <li><a href="#represalia">Represalia</a></li>
+                <li><a href="#cronologia">Cronología</a></li>
+                <li><a href="#responsables">Responsables</a></li>
+                <li><a href="#impacto">Impacto</a></li>
+                <li><a href="#legal">Marco Legal</a></li>
+                <li><a href="#pruebas">Pruebas</a></li>
+            </ul>
+        </nav>
+        
+        <section id="resumen">
+            <h2>📌 Resumen Ejecutivo</h2>
+            
+            <div class="evidence-box">
+                <h3 style="margin-top: 0;">👤 DENUNCIANTE</h3>
+                <p><strong>Nombre:</strong> Javier Benítez Láinez</p>
+                <p><strong>Cargo:</strong> Miembro del Comité de Empresa por UGT</p>
+                <p><strong>Centro:</strong> Formación y Gestión de Granada</p>
+                <p><strong>Email:</strong> benitezl@go.ugr.es</p>
+            </div>
+            
+            <p>El presente documento recoge un caso de <strong>acoso laboral sistemático con represalias documentadas</strong> que se ha prolongado desde 2020 hasta la actualidad (2025), afectando a:</p>
+            
+            <ul>
+                <li><strong>Javier Benítez Láinez</strong> (denunciante principal)</li>
+                <li><strong>María Angustina García</strong> (compañera, también expulsada de CCOO en 2020, miembro comité UGT)</li>
+                <li><strong>Benjamín Prieto</strong> (miembro comité UGT, sufre obstrucción)</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;"><strong>Características del caso:</strong></p>
+            
+            <ul>
+                <li>🎤 <strong>Sabotaje electoral ADMITIDO en grabación</strong>: Mariángeles Lamolda confiesa preparar lista rival (2020)</li>
+                <li>⚖️ <strong>Doble expulsión sindical</strong>: Javier y María Angustina expulsados de CCOO por lealtad</li>
+                <li>🏥 <strong>Daño salud severo</strong>: Baja por ansiedad/depresión + excedencia 1 año (2023-2024)</li>
+                <li>💬 <strong>Difusión coordinada video privado</strong>: PRUEBAS WhatsApp de 4 acosadores (2025)</li>
+                <li>👁️ <strong>VIGILANCIA ILEGAL</strong>: Dirección monitorizando redes sociales personales</li>
+                <li>🚫 <strong>Obstrucción a 3 representantes ELECTOS</strong>: Sin acceso email institucional</li>
+                <li>🎯 <strong>Provocaciones sistemáticas</strong>: En reuniones comité para generar reacciones</li>
+                <li>🔴 <strong>REPRESALIA DOCUMENTADA</strong>: Denuncia Canal Ético → 6 meses sin respuesta → Sanción inmediata al denunciante</li>
+            </ul>
+        </section>
+        
+        <section id="represalia">
+            <h2>🚨 REPRESALIA LABORAL DOCUMENTADA</h2>
+            
+            <div class="represalia-box">
+                <h3 style="margin-top: 0; color: #dc3545;">⚠️ CRONOLOGÍA DE LA REPRESALIA</h3>
+                
+                <div class="timeline-item" style="margin: 1.5rem 0;">
+                    <strong>📅 13 de mayo de 2025</strong>
+                    <p style="margin-top: 0.5rem;"><strong>Javier Benítez presenta denuncia formal en Canal Ético</strong> de Formación y Gestión de Granada contra:</p>
+                    <ul>
+                        <li>Ramón Barquero (miembro Comité CCOO)</li>
+                        <li>Soledad Iranzo Bel (ex-subdirectora, profesora)</li>
+                        <li>María Ángeles Lamolda González (Presidenta Comité CCOO)</li>
+                        <li>Isabel Álvarez Suárez (Secretaria Comité CCOO)</li>
+                        <li>África Morales Martínez (Vocal Comité CCOO)</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Motivos:</strong> Difusión video privado, acoso continuado, vulneración derechos fundamentales</p>
+                    <p><strong>Anexos:</strong> Capturas WhatsApp y documentación probatoria</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 4px; margin: 1.5rem 0;">
+                    <strong style="font-size: 1.3rem; color: #dc3545;">⏱️ 54 DÍAS DE SILENCIO</strong>
+                </div>
+                
+                <div class="timeline-item" style="margin: 1.5rem 0;">
+                    <strong>📅 6 de julio de 2025 (54 días después)</strong>
+                    <p style="margin-top: 0.5rem;"><strong>Francis Montoro (Director) entrega documento a Javier</strong></p>
+                    <ul>
+                        <li><strong>Contenido:</strong> Advertencia por quejas de Ramón Barquero y África Morales</li>
+                        <li><strong>Acusación:</strong> Supuestas "amenazas veladas" y "comportamiento inadecuado"</li>
+                        <li><strong>Amenaza:</strong> Posible sanción si se "repiten los hechos"</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #dc3545;"><strong>⚠️ IRREGULARIDADES GRAVES:</strong></p>
+                    <ul>
+                        <li>❌ <strong>Sin firma</strong> de Javier (no consta recepción)</li>
+                        <li>❌ <strong>Sin testigos</strong> presentes</li>
+                        <li>❌ <strong>Sin representación sindical</strong></li>
+                        <li>❌ Procedimiento <strong>irregular</strong></li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 4px; margin: 1.5rem 0;">
+                    <strong style="font-size: 1.3rem; color: #dc3545;">⏱️ 6 MESES Y CONTANDO...</strong>
+                </div>
+                
+                <div class="timeline-item" style="margin: 1.5rem 0;">
+                    <strong>📅 2 de noviembre de 2025 (ACTUALIDAD)</strong>
+                    <p style="margin-top: 0.5rem;"><strong>Estado de la denuncia de Javier en Canal Ético:</strong></p>
+                    <ul>
+                        <li>🚫 <strong>SIN RESPUESTA</strong> tras 173 días (casi 6 meses)</li>
+                        <li>🚫 <strong>SIN INVESTIGACIÓN</strong></li>
+                        <li>🚫 <strong>SIN MEDIDAS</strong> contra los acosadores</li>
+                        <li>✅ <strong>ACCIÓN INMEDIATA</strong> contra el denunciante (54 días)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>⚖️ CALIFICACIÓN LEGAL DE LA REPRESALIA</h3>
+            
+            <div class="legal-item">
+                <strong>Represalia por ejercicio de derechos</strong>
+                <p>La secuencia cronológica demuestra <strong>represalia inequívoca</strong>:</p>
+                <ul>
+                    <li>Javier denuncia acoso → Empresa NO responde</li>
+                    <li>Acosadores denuncian a Javier → Empresa actúa en 54 días</li>
+                    <li>Documento sin garantías procesales (sin testigos, sin firma)</li>
+                    <li>Inversión víctima-agresor (DARVO: Deny, Attack, Reverse Victim & Offender)</li>
+                </ul>
+                
+                <p style="margin-top: 1rem;"><strong>Marco legal vulnerado:</strong></p>
+                <ul>
+                    <li><strong>Art. 4.2.g) Estatuto de los Trabajadores</strong> - Derecho a no sufrir represalias</li>
+                    <li><strong>Art. 24 Constitución Española</strong> - Tutela judicial efectiva</li>
+                    <li><strong>Directiva UE 2019/1937</strong> - Protección denunciantes</li>
+                    <li><strong>Ley 2/2023 informantes</strong> - Prohibición de represalias</li>
+                </ul>
+            </div>
+            
+            <div class="evidence-box">
+                <strong>🔴 ESTO CONSTITUYE:</strong>
+                <ul>
+                    <li>✓ Represalia laboral tipificada</li>
+                    <li>✓ Victimización secundaria</li>
+                    <li>✓ Obstrucción de denuncia</li>
+                    <li>✓ Complicidad institucional en el acoso</li>
+                    <li>✓ Procedimiento disciplinario irregular</li>
+                    <li>✓ Agravante extremo en demanda judicial</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="cronologia">
+            <h2>📅 Cronología Completa del Acoso (2020-2025)</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">📍 2020 - Sabotaje Electoral y Doble Expulsión</div>
+                    <h3>Origen del Acoso Sistemático</h3>
+                    
+                    <p><strong>Hechos:</strong></p>
+                    <ul>
+                        <li>Javier prepara candidatura al Comité de Empresa con lista de candidatos</li>
+                        <li>CCOO organiza <strong>candidatura alternativa con los MISMOS candidatos</strong> de Javier</li>
+                        <li>Se hace a espaldas de Javier (transfuguismo electoral)</li>
+                        <li><strong>Javier y María Angustina García</strong> se mantienen fieles a la lista original</li>
+                        <li><strong>CCOO expulsa a ambos</strong> como represalia por no someterse</li>
+                        <li>Reagrupación urgente bajo UGT</li>
+                    </ul>
+                    
+                    <div class="responsible">
+                        <strong>👤 RESPONSABLE PRINCIPAL:</strong> <strong>Mariángeles Lamolda</strong> (actual Presidenta Comité CCOO)
+                        <br><br>
+                        <strong>🎤 PRUEBA DEFINITIVA:</strong> Conversación GRABADA donde Mariángeles <strong>ADMITE</strong> haber preparado la lista alternativa porque "varias personas se lo pidieron" y proporciona nombres de participantes en el sabotaje.
+                        <br><br>
+                        <strong>👥 VÍCTIMAS:</strong>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Javier Benítez Láinez</strong> - Expulsado CCOO por lealtad</li>
+                            <li><strong>María Angustina García</strong> - Expulsada CCOO por lealtad</li>
+                        </ul>
+                        <br>
+                        <strong>📊 PATRÓN:</strong> Doble expulsión demuestra represalia sistemática contra quienes no se sometieron al sabotaje.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📍 2023-2024 - Colapso de Salud Mental</div>
+                    <h3>Consecuencias Médicas del Acoso Continuado</h3>
+                    
+                    <ul>
+                        <li><strong>Diagnóstico:</strong> Ansiedad y depresión causadas por ambiente laboral hostil</li>
+                        <li><strong>Baja laboral</strong> por incapacidad temporal</li>
+                        <li><strong>Excedencia de 1 año</strong> - Imposibilidad psicológica de reincorporación</li>
+                        <li>Tratamiento médico y psicológico continuado</li>
+                        <li>Pérdida significativa de ingresos</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Nexo causal:</strong> El deterioro de salud es <strong>consecuencia directa y documentada</strong> del acoso laboral sistemático iniciado en 2020.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📍 2025 - Campaña de Desprestigio Electoral</div>
+                    <h3>Difusión Coordinada de Video Privado</h3>
+                    
+                    <p><strong>Contexto:</strong> 2 días antes del cierre de listas para elecciones al Comité de Empresa</p>
+                    
+                    <p><strong>Secuencia de hechos:</strong></p>
+                    <ol>
+                        <li>Javier envía video privado (poema) a Ramón Barquero</li>
+                        <li><strong>Ramón Barquero</strong> difunde sin consentimiento al Personal de Administración y Servicios</li>
+                        <li><strong>Isabel Suárez y África Morales</strong> coordinan y alientan la difusión vía WhatsApp</li>
+                        <li><strong>Soledad Iranzo</strong> difunde al profesorado con mención explícita a Javier diciendo "no se puede admitir este tipo de comportamientos"</li>
+                        <li><strong>Mariángeles Lamolda</strong> respalda y alienta la acción</li>
+                        <li>Daño reputacional masivo ante toda la plantilla</li>
+                    </ol>
+                    
+                    <div class="responsible">
+                        <strong>👥 RESPONSABLES COORDINADOS (todos CCOO):</strong><br><br>
+                        
+                        <strong>1. Ramón Barquero</strong> - Miembro Comité CCOO<br>
+                        · Difusión inicial al PAS<br>
+                        · Violación confianza personal<br>
+                        💬 PRUEBA: WhatsApp individuales y grupo profesores<br><br>
+                        
+                        <strong>2. Soledad Iranzo Bel</strong> - Profesora, ex-subdirectora Español<br>
+                        · Difusión masiva a profesorado<br>
+                        · Comentarios despectivos públicos<br>
+                        · Retiró actividad cultural a Javier<br>
+                        · <strong>Informó vigilancia redes sociales desde Dirección</strong><br>
+                        💬 PRUEBAS: WhatsApp difusión + vigilancia + retirada actividad<br><br>
+                        
+                        <strong>3. Isabel Álvarez Suárez</strong> - Secretaria Comité CCOO + Coordinadora PAS<br>
+                        · ⚠️ <strong>INCOMPATIBILIDAD de cargos</strong><br>
+                        · Instó a Soledad a compartir video<br>
+                        💬 PRUEBA: WhatsApp<br><br>
+                        
+                        <strong>4. África Morales Martínez</strong> - Vocal Comité CCOO<br>
+                        · Animó a compartir video<br>
+                        💬 PRUEBA: WhatsApp<br><br>
+                        
+                        <strong>5. Mariángeles Lamolda González</strong> - Presidenta Comité CCOO<br>
+                        · Alentó difusión<br>
+                        · Coordinación general del acoso<br>
+                        🎤 PRUEBA: Grabación admitiendo sabotaje 2020
+                    </div>
+                    
+                    <div class="evidence-box">
+                        <strong>💬 PRUEBAS WHATSAPP DEMUESTRAN COORDINACIÓN PREMEDITADA</strong>
+                        <p>Los mensajes entre los acosadores confirman que actuaron de forma coordinada con intención de desprestigiar a Javier antes de las elecciones.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📍 2025 - Provocaciones Sistemáticas en Reuniones</div>
+                    <h3>Estrategia de Provocación Documentada</h3>
+                    
+                    <p><strong>Patrón identificado:</strong></p>
+                    <ul>
+                        <li>En reuniones del Comité de Empresa, miembros de CCOO <strong>provocan sistemáticamente</strong> a Javier</li>
+                        <li>Objetivo: Que reaccione con tono elevado para después acusarlo</li>
+                        <li>Javier acude a reuniones con <strong>angustia anticipatoria</strong> por tener que enfrentarse a sus acosadores</li>
+                        <li><strong>Provocaciones documentadas en actas del comité</strong></li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem;">Incidente con Susana Díaz (Huelga por Palestina)</h4>
+                    <p><strong>Contexto:</strong> Javier lee poema mencionando genocidio en Palestina como <strong>representante sindical de UGT</strong></p>
+                    <ul>
+                        <li><strong>Susana Díaz</strong> (simpatizante CCOO, estaba en sus listas) viene a <strong>increparle públicamente</strong></li>
+                        <li>Javier acababa de leer el poema (tono de voz naturalmente alto)</li>
+                        <li>Se produce discusión pública provocada por Susana</li>
+                        <li>Posible motivo de nueva sanción inminente</li>
+                    </ul>
+                    
+                    <div class="evidence-box">
+                        <strong>⚖️ ANÁLISIS:</strong>
+                        <ul>
+                            <li>✓ Javier ejercía <strong>función sindical legítima</strong> (protegida constitucionalmente)</li>
+                            <li>✓ Susana <strong>provocó</strong> la situación deliberadamente</li>
+                            <li>✓ <strong>Patrón repetido:</strong> Provocan → Javier reacciona → Lo acusan</li>
+                            <li>✓ Objetivo: Crear "historial" falso de "comportamiento inadecuado"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">📍 2025 - Obstrucción a Representantes Electos</div>
+                    <h3>Acoso Institucional Continuado</h3>
+                    
+                    <div class="evidence-box" style="background: #fff3cd; border-color: #ffc107;">
+                        <strong>⚖️ COMPOSICIÓN ACTUAL COMITÉ DE EMPRESA:</strong>
+                        <p style="margin-top: 1rem;"><strong>Miembros UGT (víctimas obstrucción):</strong></p>
+                        <ul>
+                            <li><strong>Javier Benítez Láinez</strong></li>
+                            <li><strong>María Angustina García</strong></li>
+                            <li><strong>Benjamín Prieto</strong></li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>🔴 Los 3 son representantes LEGÍTIMAMENTE ELECTOS pero sufren obstrucción sistemática</strong></p>
+                    </div>
+                    
+                    <p><strong>Obstrucciones documentadas:</strong></p>
+                    <ul>
+                        <li><strong>Negación acceso email institucional</strong> a los 3 miembros de UGT por Mariángeles Lamolda</li>
+                        <li>Impide ejercicio efectivo de representación sindical</li>
+                        <li>Discriminación sindical contra representantes ELECTOS</li>
+                        <li>Vulneración derechos información y comunicación</li>
+                    </ul>
+                    
+                    <h4>Vigilancia Ilegal desde Dirección</h4>
+                    <div class="responsible" style="background: #fff3cd; border-color: #ffc107;">
+                        <strong>⚠️ ACOSO INSTITUCIONAL:</strong>
+                        <p style="margin-top: 0.5rem;">Soledad Iranzo informó a Javier que <strong>desde Dirección estaban vigilando sus páginas y redes sociales personales</strong>.</p>
+                        <p style="margin-top: 1rem;"><strong>Implica:</strong></p>
+                        <ul>
+                            <li>Vulneración Art. 18 CE (derecho intimidad)</li>
+                            <li>Posible delito Art. 197 CP (descubrimiento secretos)</li>
+                            <li>Dirección cómplice del acoso</li>
+                            <li>Acoso trasciende individuos → <strong>respaldo institucional</strong></li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">💬 <strong>PRUEBA:</strong> Mensajes WhatsApp de Soledad Iranzo</p>
+                    </div>
+                    
+                    <h4>Incompatibilidad de Cargos - Isabel Suárez</h4>
+                    <ul>
+                        <li>Secretaria del Comité de Empresa (CCOO)</li>
+                        <li>Recientemente elegida <strong>Coordinadora del PAS</strong></li>
+                        <li><strong>⚠️ Doble función INCOMPATIBLE legalmente</strong></li>
+                        <li>Conflicto de interés y abuso de posición</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>🔴 GRAVEDAD EXTREMA:</strong> Acoso dirigido contra <strong>representantes democráticamente electos</strong> atenta contra la esencia de la representación colectiva y constituye precedente gravísimo para la democracia laboral.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="responsables">
+            <h2>👥 Personas Responsables del Acoso</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
+                    <h4>Mariángeles Lamolda González</h4>
+                    <p><strong>Cargo:</strong> Presidenta Comité de Empresa (CCOO)</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Organizó sabotaje electoral 2020</li>
+                        <li>🎤 ADMITE en grabación los hechos</li>
+                        <li>Niega email institucional a UGT</li>
+                        <li>Alentó difusión video 2025</li>
+                        <li>Coordinación general del acoso</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Líder del mobbing sindical continuado</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
+                    <h4>Ramón Barquero</h4>
+                    <p><strong>Cargo:</strong> Miembro Comité de Empresa (CCOO)</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Difundió video privado sin consentimiento</li>
+                        <li>Violación de confianza personal</li>
+                        <li>Presentó queja falsa contra Javier (represalia)</li>
+                        <li>💬 WhatsApp como prueba</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Iniciador campaña difamatoria + represalia</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
+                    <h4>Soledad Iranzo Bel</h4>
+                    <p><strong>Cargo:</strong> Profesora, ex-subdirectora de Español</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Amplificó difusión video a profesorado</li>
+                        <li>Comentarios despectivos públicos</li>
+                        <li>⚠️ Informó vigilancia redes desde Dirección</li>
+                        <li>Retiró actividad cultural a Javier</li>
+                        <li>💬 WhatsApp como prueba</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Difamación + complicidad vigilancia ilegal</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
+                    <h4>Isabel Álvarez Suárez</h4>
+                    <p><strong>Cargo:</strong> Secretaria Comité (CCOO) + Coordinadora PAS</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>⚠️ INCOMPATIBILIDAD de cargos</li>
+                        <li>Instó a compartir video</li>
+                        <li>Coordinación del acoso</li>
+                        <li>💬 WhatsApp como prueba</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Abuso posición + conflicto interés</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
+                    <h4>África Morales Martínez</h4>
+                    <p><strong>Cargo:</strong> Vocal Comité de Empresa (CCOO)</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Animó a compartir video</li>
+                        <li>Presentó queja falsa contra Javier (represalia)</li>
+                        <li>Coordinación con CCOO</li>
+                        <li>💬 WhatsApp como prueba</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Participación activa + represalia</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
+                    <h4>Francis Montoro</h4>
+                    <p><strong>Cargo:</strong> Director de Formación y Gestión de Granada</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Ejecutó represalia (documento 6 julio)</li>
+                        <li>Procedimiento irregular (sin testigos, sin firma)</li>
+                        <li>Ignora denuncia Canal Ético (6 meses)</li>
+                        <li>Complicidad institucional</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Represalia institucional + obstrucción denuncia</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
+                    <h4>Susana Díaz</h4>
+                    <p><strong>Relación:</strong> Simpatizante CCOO (estaba en sus listas)</p>
+                    <p><strong>Acciones:</strong></p>
+                    <ul>
+                        <li>Increpación pública a Javier durante huelga Palestina</li>
+                        <li>Provocación deliberada mientras ejercía función sindical</li>
+                        <li>Patrón de provocación para generar reacción</li>
+                    </ul>
+                    <p><strong>Responsabilidad:</strong> Provocación + patrón acoso</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 3rem;">Patrón de Persecución Sindical Organizada</h3>
+            <div class="responsible">
+                <strong>⚠️ Comisiones Obreras (CCOO) - Represalia Organizada contra UGT</strong><br><br>
+                
+                <p>El caso presenta un <strong>patrón inequívoco de persecución sindical organizada</strong> desde CCOO contra representantes de UGT:</p>
+                
+                <ul style="margin-top: 1rem;">
+                    <li><strong>2020:</strong> Expulsión de Javier y María Angustina por no someterse</li>
+                    <li><strong>2020-2025:</strong> Acoso continuado contra ambos</li>
+                    <li><strong>2025:</strong> Coordinación de 4 miembros CCOO para difundir video (WhatsApp)</li>
+                    <li><strong>Mayo 2025:</strong> Javier denuncia → Represalia inmediata de CCOO</li>
+                    <li><strong>Actualidad:</strong> Obstrucción a 3 representantes ELECTOS de UGT</li>
+                    <li>TODOS los responsables pertenecen a CCOO</li>
+                    <li>Actuación coordinada probada (WhatsApp)</li>
+                    <li>Uso del sindicato como instrumento de acoso político</li>
+                </ul>
+                
+                <div class="evidence-box" style="margin-top: 1.5rem;">
+                    <strong>👥 VÍCTIMAS DEL ACOSO DE CCOO:</strong>
+                    <ol>
+                        <li><strong>Javier Benítez Láinez</strong> - Expulsado 2020, acoso continuado, represalia 2025, miembro comité UGT</li>
+                        <li><strong>María Angustina García</strong> - Expulsada 2020 por lealtad, miembro comité UGT</li>
+                        <li><strong>Benjamín Prieto</strong> - Miembro comité UGT, sufre obstrucción sistemática</li>
+                    </ol>
+                </div>
+                
+                <p style="margin-top: 1.5rem;"><strong>Calificación Legal:</strong> Conducta antisindical grave y continuada (Art. 12 LOLS). CCOO tiene <strong>responsabilidad solidaria</strong> por acciones coordinadas de sus miembros en ejercicio de funciones sindicales. El acoso a <strong>múltiples víctimas</strong> y dirigido contra <strong>representantes electos democráticamente</strong> agrava extremadamente el caso.</p>
+            </div>
+            
+            <div class="alert" style="background: #ffe6e6; border-left: 4px solid #dc3545; margin-top: 2rem;">
+                <strong>🔴 ACOSO INSTITUCIONAL:</strong> La implicación del Director (Francis Montoro) ejecutando represalias y el conocimiento desde Dirección de la vigilancia de redes sociales convierte esto en <strong>acoso con respaldo institucional</strong>, no solo individual. La empresa es <strong>responsable solidaria</strong> por facilitar y ejecutar el acoso.
+            </div>
+        </section>
+        
+        <section id="impacto">
+            <h2>💔 Impacto del Acoso Laboral</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
+                    <h4>🏥 Impacto en la Salud</h4>
+                    <ul>
+                        <li>Ansiedad diagnosticada con tratamiento médico</li>
+                        <li>Depresión clínica derivada del ambiente laboral</li>
+                        <li>Baja laboral prolongada por IT</li>
+                        <li>Excedencia de 1 año por imposibilidad de reincorporación</li>
+                        <li>Tratamiento psicológico/psiquiátrico continuado</li>
+                        <li>Angustia anticipatoria ante reuniones con acosadores</li>
+                        <li>Daño permanente en salud mental</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>✓ Documentado médicamente</strong></p>
+                    <p><strong>✓ Nexo causal probado</strong> con acoso</p>
+                </div>
+                
+                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
+                    <h4>💰 Impacto Económico</h4>
+                    <ul>
+                        <li>Pérdida ingresos durante excedencia (1 año)</li>
+                        <li>Gastos médicos en tratamientos psicológicos</li>
+                        <li>Gastos psiquiátricos continuados</li>
+                        <li>Afectación a carrera profesional y promociones</li>
+                        <li>Gastos en asesoramiento legal</li>
+                        <li>Reducción complementos salariales</li>
+                        <li>Impacto en cotizaciones para jubilación</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Cuantificable y reclamable</strong> en vía laboral y penal</p>
+                </div>
+                
+                <div class="impact-card" style="background: #f0fff4; border-top: 4px solid #48bb78;">
+                    <h4>📉 Impacto Profesional y Reputacional</h4>
+                    <ul>
+                        <li>Menoscabo grave imagen profesional ante compañeros</li>
+                        <li>Difusión masiva video privado con comentarios despectivos</li>
+                        <li>Estigmatización en entorno laboral</li>
+                        <li>Aislamiento social en lugar de trabajo</li>
+                        <li>Daño a credibilidad como representante sindical</li>
+                        <li>Obstaculización funciones sindicales legítimas</li>
+                        <li>Deterioro relaciones profesionales</li>
+                        <li>Ambiente laboral hostil continuado</li>
+                        <li>Creación "historial" falso mediante provocaciones</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="legal-section" style="margin-top: 2rem;">
+                <h3>📊 Evaluación Global del Daño</h3>
+                <p>El conjunto de impactos configura un caso de <strong>acoso laboral de especial gravedad</strong> según criterios del Tribunal Supremo:</p>
+                <ul>
+                    <li>✓ <strong>Conducta sistemática y prolongada</strong> (2020-2025, 5 años)</li>
+                    <li>✓ <strong>Intencionalidad clara</strong> (sabotaje electoral, represalia política)</li>
+                    <li>✓ <strong>Daño psicológico documentado</strong> (bajas médicas, excedencia)</li>
+                    <li>✓ <strong>Afectación derechos fundamentales</strong> (intimidad, libertad sindical)</li>
+                    <li>✓ <strong>Resultado: degradación condiciones laborales</strong> hasta excedencia forzosa</li>
+                    <li>✓ <strong>Múltiples víctimas</strong> (Javier, María Angustina, Benjamín)</li>
+                    <li>✓ <strong>Represalia documentada</strong> por ejercer derecho de denuncia</li>
+                    <li>✓ <strong>Coordinación entre acosadores</strong> (pruebas WhatsApp)</li>
+                    <li>✓ <strong>Complicidad institucional</strong> (Dirección ejecuta represalia)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="legal">
+            <h2>⚖️ Marco Legal Aplicable</h2>
+            
+            <h3>1. Constitución Española</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 18.1 - Derecho a la Intimidad</strong>
+                <p>"Se garantiza el derecho al honor, a la intimidad personal y familiar y a la propia imagen."</p>
+                <p><strong>Vulneraciones:</strong></p>
+                <ul>
+                    <li>Difusión video privado sin consentimiento (desprestigio electoral)</li>
+                    <li>Vigilancia de redes sociales personales desde Dirección</li>
+                </ul>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 24 - Tutela Judicial Efectiva</strong>
+                <p>"Todas las personas tienen derecho a obtener la tutela efectiva de los jueces y tribunales."</p>
+                <p><strong>Vulneración:</strong> Denuncia Canal Ético sin respuesta 6 meses → Obstrucción tutela efectiva</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 28 - Libertad Sindical</strong>
+                <p>"Todos tienen derecho a sindicarse libremente."</p>
+                <p><strong>Vulneraciones:</strong></p>
+                <ul>
+                    <li>Sabotaje electoral 2020</li>
+                    <li>Expulsiones por no someterse</li>
+                    <li>Obstrucción sistemática a 3 representantes electos UGT</li>
+                    <li>Negación email institucional</li>
+                    <li>Represalia por ejercer derechos sindicales</li>
+                </ul>
+            </div>
+            
+            <h3>2. Estatuto de los Trabajadores</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 4.2.e) - Derecho a Integridad Física y Dignidad</strong>
+                <p>"Respeto a su intimidad y a la consideración debida a su dignidad, comprendida la protección frente al acoso."</p>
+                <p><strong>Aplicación:</strong> Incumplimiento grave del centro al no prevenir ni actuar ante acoso continuado durante 5 años.</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 4.2.g) - Protección frente a Represalias</strong>
+                <p>"Derecho a no ser objeto de represalias por haber formulado reclamaciones."</p>
+                <p><strong>Aplicación CRÍTICA:</strong> Represalia documentada tras denuncia Canal Ético (13 mayo → documento sancionador 6 julio). La empresa ejecutó represalia en lugar de proteger al denunciante.</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 50 - Extinción por Voluntad del Trabajador</strong>
+                <p>Modificaciones sustanciales que redunden en menoscabo de la dignidad.</p>
+                <p><strong>Aplicación:</strong> Base para eventual extinción indemnizada si el acoso continúa.</p>
+            </div>
+            
+            <h3>3. Ley Orgánica de Libertad Sindical (LOLS)</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 10 - Garantías de los Representantes</strong>
+                <p>Derecho a acceso a información y medios para ejercicio de funciones.</p>
+                <p><strong>Aplicación:</strong> Violado flagrantemente al negar email institucional a 3 miembros UGT del comité.</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 12 - Conductas Antisindicales</strong>
+                <p>Cualquier acción que suponga discriminación por razón de afiliación sindical.</p>
+                <p><strong>Aplicación:</strong> Todo el caso constituye conducta antisindical grave y continuada de CCOO contra UGT.</p>
+            </div>
+            
+            <h3>4. Código Penal</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 173.1 - Delito de Acoso</strong>
+                <p>"El que acosare a una persona de forma insistente y reiterada que altere gravemente el desarrollo de su vida cotidiana."</p>
+                <p><strong>Aplicación:</strong> Acoso sistemático 2020-2025 alteró gravemente vida de Javier (baja, excedencia, daño salud mental).</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 197 - Descubrimiento y Revelación de Secretos</strong>
+                <p>Difusión, revelación o cesión a terceros de datos personales sin consentimiento.</p>
+                <p><strong>Aplicación:</strong></p>
+                <ul>
+                    <li>Difusión video privado sin consentimiento con fines perjudiciales</li>
+                    <li>Vigilancia de redes sociales personales desde Dirección</li>
+                </ul>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 208 - Injurias</strong>
+                <p>Acción o expresión que lesiona dignidad, menoscaba fama o atenta contra propia estimación.</p>
+                <p><strong>Aplicación:</strong> Comentarios despectivos públicos de Soledad Iranzo asociados a difusión del video.</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 314 - Delito contra Derechos de los Trabajadores</strong>
+                <p>"Quienes mediante engaño o abuso impidieren o limitaren el ejercicio de la libertad sindical."</p>
+                <p><strong>Aplicación AGRAVADA:</strong> Acciones para impedir participación electoral y ejercicio sindical. <strong>AGRAVANTE:</strong> Acoso dirigido contra 3 representantes ELECTOS democráticamente (Javier, María Angustina, Benjamín) = ataque directo a democracia laboral.</p>
+            </div>
+            
+            <h3>5. Ley 2/2023 de Protección de Informantes</h3>
+            
+            <div class="legal-item">
+                <strong>Protección frente a Represalias</strong>
+                <p>Prohibición expresa de represalias contra quien denuncia irregularidades.</p>
+                <p><strong>Aplicación:</strong> Javier denunció en Canal Ético → Represalia documentada 54 días después. Vulneración directa de esta ley.</p>
+            </div>
+            
+            <h3>6. Directiva UE 2019/1937 - Protección Denunciantes</h3>
+            
+            <div class="legal-item">
+                <strong>Prohibición de Represalias</strong>
+                <p>Protección reforzada para denunciantes de irregularidades.</p>
+                <p><strong>Aplicación:</strong> España debe garantizar protección. La represalia documentada vulnera normativa europea.</p>
+            </div>
+            
+            <h3>7. Ley de Prevención de Riesgos Laborales</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 14 - Derecho a la Protección</strong>
+                <p>Trabajadores tienen derecho a protección eficaz en seguridad y salud.</p>
+                <p><strong>Aplicación:</strong> Centro tiene responsabilidad por no prevenir ni actuar ante riesgos psicosociales evidentes durante 5 años.</p>
+            </div>
+            
+            <div class="legal-item">
+                <strong>Artículo 15.1.g) - Evaluación Riesgos Psicosociales</strong>
+                <p>Obligación de evaluar y prevenir riesgos psicosociales, incluido acoso.</p>
+                <p><strong>Aplicación:</strong> Incumplimiento empresarial flagrante al permitir ambiente de acoso continuado hasta consecuencias médicas graves (baja, excedencia).</p>
+            </div>
+            
+            <h3>8. LOPD - Ley Orgánica Protección de Datos</h3>
+            
+            <div class="legal-item">
+                <strong>Artículo 5 - Deber de Confidencialidad</strong>
+                <p>Obligación de secreto respecto datos personales.</p>
+                <p><strong>Aplicación:</strong> Difusión video constituye violación protección datos personales. Posible denuncia ante AEPD.</p>
+            </div>
+            
+            <h3>9. Jurisprudencia del Tribunal Supremo</h3>
+            
+            <div class="legal-section">
+                <p><strong>Elementos constitutivos de acoso laboral (todos presentes en este caso):</strong></p>
+                <ul>
+                    <li>✓ Conducta sistemática y prolongada en el tiempo</li>
+                    <li>✓ Intención de causar daño o perjuicio</li>
+                    <li>✓ Resultado de degradación de condiciones laborales</li>
+                    <li>✓ Afectación a la dignidad del trabajador</li>
+                </ul>
+                
+                <p style="margin-top: 1.5rem;"><strong>Sentencias de Referencia:</strong></p>
+                <ul>
+                    <li>STS 4300/2015 - Acoso laboral y daño moral</li>
+                    <li>STS 3109/2018 - Mobbing y vulneración derechos fundamentales</li>
+                    <li>STS 287/2021 - Responsabilidad empresarial en acoso</li>
+                </ul>
+                
+                <p style="margin-top: 1.5rem;"><strong>Sobre represalias:</strong></p>
+                <ul>
+                    <li>STS 876/2020 - Inversión carga prueba en represalias</li>
+                    <li>STS 234/2019 - Nulidad medidas represalia tras denuncia</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="pruebas">
+            <h2>📎 Pruebas Documentales Disponibles</h2>
+            
+            <div class="evidence-box" style="background: #fff3cd; border-color: #ffc107;">
+                <h3 style="margin-top: 0;">🎤🔴 PRUEBAS CLAVE IRREFUTABLES</h3>
+                <ul style="font-size: 1.1rem;">
+                    <li><strong>✓ GRABACIÓN AUDIO:</strong> Mariángeles Lamolda ADMITE sabotaje electoral 2020</li>
+                    <li><strong>✓ DENUNCIA CANAL ÉTICO:</strong> 13 mayo 2025 - SIN RESPUESTA 6 MESES</li>
+                    <li><strong>✓ DOCUMENTO REPRESALIA:</strong> 6 julio 2025 - Francis Montoro (sin testigos, sin firma)</li>
+                    <li><strong>✓ WHATSAPP RAMÓN BARQUERO:</strong> Difundiendo video</li>
+                    <li><strong>✓ WHATSAPP SOLEDAD IRANZO:</strong> Difusión + vigilancia + retirada actividad</li>
+                    <li><strong>✓ WHATSAPP ISABEL SUÁREZ:</strong> Instando a compartir video</li>
+                    <li><strong>✓ WHATSAPP ÁFRICA MORALES:</strong> Animando difusión</li>
+                </ul>
+            </div>
+            
+            <h3>Evidencias Médicas</h3>
+            <ul>
+                <li>☑ Informes médicos de baja laboral por ansiedad y depresión</li>
+                <li>☑ Diagnósticos psicológicos/psiquiátricos</li>
+                <li>☑ Prescripciones de tratamiento médico continuado</li>
+                <li>☑ Documentación solicitud y concesión de excedencia (1 año)</li>
+                <li>☑ Informes de seguimiento médico</li>
+                <li>☑ Nexo causal: Informes vinculando daño con ambiente laboral</li>
+            </ul>
+            
+            <h3>Evidencias de Represalia (Mayo-Julio 2025)</h3>
+            <ul>
+                <li><strong>☑ DENUNCIA CANAL ÉTICO</strong> - 13 mayo 2025 con anexos probatorios</li>
+                <li><strong>☑ DOCUMENTO FRANCIS MONTORO</strong> - 6 julio 2025 (advertencia sin firma ni testigos)</li>
+                <li>☑ Acuse de recibo denuncia Canal Ético (si existe)</li>
+                <li>☑ Comunicaciones reclamando respuesta a Canal Ético</li>
+                <li>☑ Registro de 173 días sin respuesta (hasta 2 noviembre 2025)</li>
+                <li>☑ Prueba de procedimiento irregular (entrega sin testigos)</li>
+            </ul>
+            
+            <h3>Evidencias del Incidente del Video (2025)</h3>
+            <ul>
+                <li>☑ Video original enviado (contenido inofensivo - poema)</li>
+                <li><strong>☑ Capturas WhatsApp Ramón Barquero</strong> (individuales + grupo profesores)</li>
+                <li><strong>☑ Capturas WhatsApp Soledad Iranzo</strong> (difusión grupo profesorado con mención explícita)</li>
+                <li><strong>☑ Capturas WhatsApp Isabel Suárez</strong> (instando a compartir)</li>
+                <li><strong>☑ Capturas WhatsApp África Morales</strong> (animando a compartir)</li>
+                <li>☑ Cadena completa difusión documentada</li>
+                <li>☑ Testimonios personas que recibieron video</li>
+                <li>☑ Registro fechas: 2 días antes cierre listas (intencionalidad electoral)</li>
+            </ul>
+            
+            <h3>Evidencias de Sabotaje Electoral (2020)</h3>
+            <ul>
+                <li><strong>☑ GRABACIÓN con Mariángeles Lamolda admitiendo sabotaje</strong></li>
+                <li>☑ Documentación doble expulsión: Javier + María Angustina García</li>
+                <li>☑ Prueba motivo expulsión: lealtad a lista original</li>
+                <li>☑ Listas electorales originales</li>
+                <li>☑ Documentación candidatura rival formada a espaldas</li>
+                <li>☑ Comunicaciones sobre expulsiones

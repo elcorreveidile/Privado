@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentación Acoso Laboral - Javier Benítez Láinez</title>
+    <title>Acceso Seguro - Documentación Confidencial</title>
     <style>
         * {
             margin: 0;
@@ -12,1003 +12,464 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #333;
-            background: #f4f4f4;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .login-container {
             background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 90%;
         }
-        header {
+        .lock-icon {
+            font-size: 4rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .alert {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1.5rem;
-            margin: 2rem;
-        }
-        nav {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            padding: 3rem 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.4rem;
-            margin: 2rem 0 1rem 0;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
+            border: none;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.6rem;
-            top: 1.5rem;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #667eea;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #667eea;
-        }
-        .timeline-date {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        .responsible {
-            background: #ffe6e6;
-            border-left: 4px solid #dc3545;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-        .evidence-box {
-            background: #e7f3ff;
-            border: 2px solid #3498db;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-        .medical-proof {
-            background: #e8f5e9;
-            border: 3px solid #4caf50;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .represalia-box {
-            background: #ffe6e6;
-            border: 3px solid #dc3545;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .impact-card {
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        ul {
-            margin-left: 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             margin-top: 1rem;
         }
-        ul li {
-            margin: 0.5rem 0;
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
-        footer {
-            background: #2c3e50;
-            color: white;
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .error-message {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
             text-align: center;
-            padding: 2rem;
         }
-        @media print {
-            nav { display: none; }
-            body { background: white; }
-            .container { box-shadow: none; }
+        .security-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+        }
+        .access-attempts {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📋 Documentación de Acoso Laboral</h1>
-            <h2 style="margin-top: 1rem; font-size: 1.8rem;">Javier Benítez Láinez</h2>
-            <p style="margin-top: 0.5rem;">Profesor Titular de Lengua y Literatura Española</p>
-            <p>Secretario General Sección Sindical UGT</p>
-            <p>Centro de Lenguas Modernas - Universidad de Granada</p>
-            <p style="margin-top: 1rem; font-weight: bold;">Periodo: 2020 - 2025</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Versión definitiva: 3 de noviembre de 2025</p>
-        </header>
-        
-        <div class="alert">
-            <strong>⚠️ Documento Confidencial:</strong> Documentación de acoso laboral institucional con represalias probadas. Destinado a: Dirección CLM, UGT, Inspección de Trabajo y asesoría legal.
+    <div class="login-container">
+        <div class="lock-icon">🔒</div>
+        <h1>Acceso Seguro</h1>
+        <p class="subtitle">
+            Documentación confidencial de acoso laboral institucional<br>
+            Acceso restringido a personal autorizado
+        </p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    placeholder="Ingrese su usuario"
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Clave de Acceso</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="Ingrese su clave única"
+                    autocomplete="current-password"
+                >
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                Acceder a Documentación
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 0.5rem; color: #667eea;">Verificando credenciales...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                Credenciales incorrectas o acceso bloqueado<br>
+                Por favor, verifique sus datos o contacte al administrador
+            </div>
+        </form>
+
+        <div class="security-info">
+            <strong>🛡️ Información de Seguridad:</strong><br>
+            Este sistema utiliza control de acceso por IP única<br>
+            Máximo 5 direcciones IP permitidas por sesión<br>
+            Toda actividad queda registrada
         </div>
-        
-        <nav>
-            <ul>
-                <li><a href="#resumen">Resumen</a></li>
-                <li><a href="#medico">Prueba Médica</a></li>
-                <li><a href="#represalia">Represalia</a></li>
-                <li><a href="#encerrona">Encerrona 2021</a></li>
-                <li><a href="#cronologia">Cronología</a></li>
-                <li><a href="#responsables">Responsables</a></li>
-            </ul>
-        </nav>
-        
-        <section id="resumen">
-            <h2>📌 Resumen Ejecutivo</h2>
-            
-            <div class="evidence-box">
-                <h3 style="margin-top: 0;">👤 DENUNCIANTE</h3>
-                <p><strong>Nombre:</strong> Javier Benítez Láinez</p>
-                <p><strong>Cargo:</strong> Profesor Titular de Lengua y Literatura Española</p>
-                <p><strong>Puesto sindical:</strong> Secretario General Sección Sindical UGT (constituida febrero 2021, registrada oficialmente)</p>
-                <p><strong>Miembro Comité de Empresa:</strong> Electo por UGT (2025-actual)</p>
-                <p><strong>Centro:</strong> Centro de Lenguas Modernas (CLM), Universidad de Granada</p>
-                <p><strong>Antigüedad:</strong> Desde 2003 (22 años, menos 1 año excedencia = 21 años efectivos)</p>
-                <p><strong>Email:</strong> benitezl@go.ugr.es</p>
-            </div>
-            
-            <p>Caso de <strong>acoso laboral institucional sistemático</strong> que se prolonga desde 2020 hasta 2025, caracterizado por:</p>
-            
-            <ul>
-                <li>🎤 <strong>SABOTAJE ELECTORAL ADMITIDO EN GRABACIÓN</strong> (2020) - Mariángeles Lamolda confiesa</li>
-                <li>⚖️ <strong>DOBLE EXPULSIÓN SINDICAL</strong> - Javier + María Angustina García (CCOO, 2020)</li>
-                <li>🏛️ <strong>ENCERRONA INSTITUCIONAL</strong> - Rectora Pilar Aranda + 3 cargos (3 marzo 2021)</li>
-                <li>🚫 <strong>EXCLUSIÓN NEGOCIACIÓN COLECTIVA</strong> (2021-2024) - Discriminación sindical</li>
-                <li>🏥 <strong>COLAPSO SALUD DOCUMENTADO</strong> - Diagnóstico médico: "mobbing laboral"</li>
-                <li>📉 <strong>27 MESES SIN TRABAJAR</strong> - 15 meses baja IT + 12 meses excedencia forzosa</li>
-                <li>💬 <strong>DIFUSIÓN COORDINADA VIDEO PRIVADO</strong> (2025) - Pruebas WhatsApp 4 acosadores</li>
-                <li>🔴 <strong>REPRESALIA DOCUMENTADA</strong> - Denuncia ignorada 6 meses → Advertencia sanción 54 días después</li>
-                <li>⚠️ <strong>INTENTOS SANCIÓN PREVIOS</strong> - 2 sanciones retiradas al exigir decisión judicial</li>
-                <li>👁️ <strong>VIGILANCIA ILEGAL</strong> - Dirección monitorizando redes sociales personales</li>
-                <li>💣 <strong>VIOLACIÓN LOPD</strong> - Juan Sánchez reveló datos protegidos (encuestas)</li>
-            </ul>
-            
-            <div class="medical-proof">
-                <h3 style="margin-top: 0; color: #2e7d32;">🏥 PRUEBA MÉDICA CLAVE</h3>
-                <p style="font-size: 1.1rem;"><strong>Informe psicológico 11/10/2021:</strong></p>
-                <p style="margin-top: 1rem; font-style: italic;">"Paciente hombre de 53 años en tratamiento psicológico desde 11/10/2021 derivado por su MAP por crisis de pánico, en el contexto de un <strong>cuadro ansioso-depresivo reactivo al mobbing que refiere padecer en su puesto de trabajo</strong>."</p>
-                <p style="margin-top: 1rem;"><strong>Alta:</strong> 13 enero 2023 (15 meses tratamiento)</p>
-                <p><strong>Profesionales:</strong> 2 psicólogos + 1 psiquiatra</p>
-                <p style="margin-top: 1rem; color: #c62828;"><strong>⚠️ NEXO CAUSAL PROBADO:</strong> 7 meses después de encerrona institucional + exclusión negociación → Colapso psicológico</p>
-            </div>
-            
-            <div class="represalia-box">
-                <h3 style="margin-top: 0; color: #d32f2f;">🚨 REPRESALIA INSTITUCIONAL</h3>
-                <p><strong>13 mayo 2025:</strong> Javier denuncia en Canal Ético</p>
-                <p><strong>6 julio 2025:</strong> Director entrega documento advertencia sanción (54 días después)</p>
-                <p><strong>3 noviembre 2025:</strong> 173 días SIN RESPUESTA a denuncia Canal Ético</p>
-                <p style="margin-top: 1rem;"><strong>Antecedentes:</strong> 2 intentos previos de sanción (1 muy grave + 1 leve) retirados al exigir decisión judicial</p>
-                <p style="margin-top: 1rem; font-size: 1.1rem;"><strong>Inversión víctima-agresor documentada</strong></p>
-            </div>
-        </section>
-        
-        <section id="medico">
-            <h2>🏥 PRUEBA MÉDICA DEL MOBBING</h2>
-            
-            <div class="medical-proof">
-                <h3 style="margin-top: 0;">Diagnóstico Oficial: Mobbing Laboral</h3>
-                
-                <p><strong>Fecha inicio tratamiento:</strong> 11 octubre 2021</p>
-                <p><strong>Derivado por:</strong> Médico de Atención Primaria</p>
-                <p><strong>Motivo:</strong> Crisis de pánico</p>
-                <p><strong>Diagnóstico:</strong> Cuadro ansioso-depresivo <strong>reactivo al mobbing laboral</strong></p>
-                <p><strong>Duración tratamiento:</strong> 15 meses (hasta 13 enero 2023)</p>
-                <p><strong>Profesionales implicados:</strong></p>
-                <ul>
-                    <li>Psicólogo clínico #1</li>
-                    <li>Psicólogo clínico #2</li>
-                    <li>Psiquiatra</li>
-                </ul>
-                <p><strong>Seguimiento posterior:</strong> Tratamiento ocasional por problemas de sueño y ansiedad</p>
-                
-                <h3>Nexo Causal Probado</h3>
-                <p><strong>3 marzo 2021:</strong> Encerrona institucional + Exclusión negociación convenio</p>
-                <p><strong>↓ 7 meses aguantando situación</strong></p>
-                <p><strong>11 octubre 2021:</strong> COLAPSO → Crisis de pánico → Inicio baja laboral</p>
-                
-                <div class="evidence-box">
-                    <strong>📄 DOCUMENTACIÓN MÉDICA DISPONIBLE:</strong>
-                    <ul>
-                        <li>✓ Informe derivación MAP</li>
-                        <li>✓ Informes evolución psicólogo #1</li>
-                        <li>✓ Informes evolución psicólogo #2</li>
-                        <li>✓ Informes psiquiátricos</li>
-                        <li>✓ Informe alta 13/01/2023</li>
-                        <li>✓ Informes seguimiento posterior</li>
-                        <li>✓ TODO EN PDF</li>
-                    </ul>
-                </div>
-                
-                <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #c62828;"><strong>⚖️ VALOR LEGAL:</strong> No es opinión del trabajador. Es diagnóstico médico profesional que usa explícitamente el término "mobbing laboral" como causa del cuadro clínico.</p>
-            </div>
-        </section>
-        
-        <section id="encerrona">
-            <h2>🏛️ ENCERRONA INSTITUCIONAL - 3 MARZO 2021</h2>
-            
-            <h3>Contexto</h3>
-            <p>Tras ganar UGT su primer representante en elecciones 2020, se constituye la Sección Sindical UGT (febrero 2021) con Javier como Secretario General. UGT solicita reunión con Rectora.</p>
-            
-            <h3>Los Hechos</h3>
-            
-            <div class="timeline-item" style="background: #ffebee;">
-                <strong>📅 3 de marzo de 2021</strong>
-                
-                <p style="margin-top: 1rem;"><strong>Reunión solicitada con:</strong> Rectora Pilar Aranda</p>
-                
-                <p style="margin-top: 1rem;"><strong>Aparecen SIN AVISAR:</strong></p>
-                <ul>
-                    <li><strong>Juan Sánchez</strong> (Co-director CLM)</li>
-                    <li><strong>Francis Montoro</strong> (Director CLM)</li>
-                    <li><strong>Dorothy Kelly</strong> (Vicerrectora de Internacionalización)</li>
-                </ul>
-                
-                <p style="margin-top: 1rem;"><strong>Asistentes UGT (testigos):</strong></p>
-                <ul>
-                    <li><strong>Javier Benítez Láinez</strong> (Secretario General Sección UGT)</li>
-                    <li><strong>José Antonio Rosales</strong> (Miembro Comité UGT, posteriormente jubilado)</li>
-                    <li><strong>Luis Miguel González Rubio</strong> (Secretario General UGT Granada)</li>
-                    <li>Otro representante UGT-UGR (nombre no recordado)</li>
-                </ul>
-                
-                <div class="responsible" style="margin-top: 1.5rem;">
-                    <strong>🎭 EMBOSCADA COORDINADA</strong>
-                    <p style="margin-top: 0.5rem;">La reunión se convierte en encerrona institucional con presencia de máximas autoridades universitarias + dirección CLM para reprimir y menospreciar públicamente a Javier.</p>
-                </div>
-                
-                <h4 style="margin-top: 1.5rem;">Acciones durante la reunión:</h4>
-                
-                <p><strong>Pilar Aranda (Rectora):</strong></p>
-                <ul>
-                    <li>Reprensión pública ante todos los presentes</li>
-                    <li>Menosprecio con indicaciones previas de directores</li>
-                    <li>Respaldo institucional al acoso</li>
-                </ul>
-                
-                <p><strong>Juan Sánchez (Co-director):</strong></p>
-                <ul>
-                    <li>Manifestó delante de Rectora: "tampoco eres tan buen profesor"</li>
-                    <li><strong>⚠️ VIOLACIÓN LOPD:</strong> Reveló dato protegido (encuestas satisfacción)</li>
-                </ul>
-                
-                <p><strong>Francis Montoro (Director):</strong></p>
-                <ul>
-                    <li>Participó activamente en reprensión</li>
-                    <li>Coordinación con Juan Sánchez</li>
-                </ul>
-                
-                <div class="evidence-box" style="margin-top: 1.5rem;">
-                    <strong>👥 TESTIGOS DE MÁXIMO NIVEL:</strong>
-                    <ul>
-                        <li><strong>Luis Miguel González Rubio</strong> - Secretario General UGT Granada</li>
-                        <li><strong>José Antonio Rosales</strong> - Representante UGT en Comité</li>
-                        <li>Otro representante UGT-UGR</li>
-                    </ul>
-                    <p style="margin-top: 1rem;"><strong>CRÍTICO:</strong> Testigos presenciales de máxima credibilidad que pueden declarar sobre humillación pública institucional y violación LOPD.</p>
-                </div>
-            </div>
-            
-            <h3>Consecuencias Inmediatas</h3>
-            <p><strong>MISMO DÍA 3 marzo 2021:</strong> Se niega a Javier asistir a negociaciones del convenio colectivo</p>
-            <ul>
-                <li>Como Secretario General Sección Sindical tiene derecho legal (Art. 10.3 LOLS)</li>
-                <li>Argumento CCOO: "empresa <250 trabajadores no reconoce sección"</li>
-                <li>Argumento ILEGAL: práctica habitual es permitir asistencia con voz sin voto</li>
-                <li>José Antonio Rosales (UGT) SÍ puede asistir (es miembro comité)</li>
-                <li>CCOO tiene 4 representantes en la mesa</li>
-                <li>UGT: 1 solo (José Antonio)</li>
-                <li>Javier EXCLUIDO totalmente</li>
-            </ul>
-            
-            <p style="margin-top: 1.5rem;"><strong>⚖️ CALIFICACIÓN LEGAL:</strong></p>
-            <ul>
-                <li>Acoso institucional desde Rectorado</li>
-                <li>Humillación pública con testigos</li>
-                <li>Violación LOPD por Juan Sánchez (Art. 197 CP)</li>
-                <li>Discriminación sindical (Art. 314 CP)</li>
-                <li>Impedimento ejercicio derechos colectivos</li>
-            </ul>
-            
-            <p style="margin-top: 1.5rem; color: #c62828; font-size: 1.1rem;"><strong>7 MESES DESPUÉS → COLAPSO PSICOLÓGICO (11 octubre 2021)</strong></p>
-        </section>
-        
-        <section id="cronologia">
-            <h2>📅 Cronología Completa 2020-2025</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 2020 - Sabotaje Electoral + Doble Expulsión</div>
-                    <p><strong>Elecciones Comité Empresa:</strong> CCOO organiza lista rival con candidatos de Javier</p>
-                    <p><strong>Resultado:</strong> 4 CCOO, 1 UGT (José Antonio Rosales)</p>
-                    <p><strong>Expulsiones CCOO por lealtad:</strong></p>
-                    <ul>
-                        <li>Javier Benítez Láinez</li>
-                        <li>María Angustina García</li>
-                    </ul>
-                    <p><strong>🎤 PRUEBA:</strong> Grabación Mariángeles Lamolda admitiendo sabotaje</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 Febrero 2021 - Constitución Sección Sindical UGT</div>
-                    <p><strong>Primera Sección Sindical UGT en CLM</strong></p>
-                    <p><strong>Secretario General:</strong> Javier Benítez Láinez</p>
-                    <p><strong>Registrada oficialmente</strong> ✓</p>
-                    <p><strong>Acta constitución disponible</strong> ✓</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 3 Marzo 2021 - ENCERRONA INSTITUCIONAL</div>
-                    <p><strong>Reunión con Rectora Pilar Aranda</strong></p>
-                    <p><strong>Emboscada:</strong> Juan Sánchez + Francis Montoro + Dorothy Kelly</p>
-                    <p><strong>Reprensión pública + Violación LOPD</strong></p>
-                    <p><strong>MISMO DÍA:</strong> Exclusión negociación convenio</p>
-                    <p><strong>Testigos:</strong> Luis Miguel González Rubio + José Antonio Rosales + otro UGT</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 2021-2024 - Exclusión Sistemática Negociación Convenio</div>
-                    <p><strong>Duración proceso:</strong> 3 años (2021-2024)</p>
-                    <p><strong>CCOO:</strong> 4 representantes en mesa negociación</p>
-                    <p><strong>UGT:</strong> 1 representante (José Antonio)</p>
-                    <p><strong>Javier (Sec. Gral. Sección):</strong> EXCLUIDO totalmente</p>
-                    <p><strong>Resultado:</strong> Convenio firmado 2024 SIN firma de ningún representante UGT</p>
-                    <p><strong>Solicitud:</strong> Javier pidió por escrito asistir</p>
-                    <p><strong>Respuesta:</strong> Denegación de acceso</p>
-                </div>
-                
-                <div class="timeline-item" style="background: #ffebee;">
-                    <div class="timeline-date">📍 11 Octubre 2021 - COLAPSO SALUD</div>
-                    <p style="font-size: 1.2rem; color: #c62828;"><strong>7 MESES DESPUÉS DE ENCERRONA</strong></p>
-                    <p><strong>Crisis de pánico</strong></p>
-                    <p><strong>Diagnóstico médico:</strong> "Cuadro ansioso-depresivo reactivo al mobbing laboral"</p>
-                    <p><strong>Inicio:</strong> Baja laboral IT + Tratamiento psicológico/psiquiátrico</p>
-                    <p><strong>Profesionales:</strong> 2 psicólogos + 1 psiquiatra</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 11 Oct 2021 - 13 Enero 2023</div>
-                    <p><strong>15 MESES DE BAJA LABORAL</strong></p>
-                    <p>Incapacidad Temporal por mobbing laboral</p>
-                    <p>Tratamiento intensivo continuado</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 13 Enero 2023 - ALTA MÉDICA</div>
-                    <p>Alta tras 15 meses tratamiento</p>
-                    <p><strong>Imposibilidad de reincorporación inmediata</strong></p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 Enero-Mayo 2023</div>
-                    <p>1 mes sin sueldo</p>
-                    <p>Preparación para excedencia</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 Junio 2023 - Junio 2024</div>
-                    <p><strong>12 MESES EXCEDENCIA FORZOSA</strong></p>
-                    <p>Sin ingresos durante todo el periodo</p>
-                    <p>Imposibilidad psicológica de trabajar en ese ambiente</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 Julio 2024 - REINCORPORACIÓN</div>
-                    <p><strong>Total tiempo sin trabajar: 34 meses</strong></p>
-                    <ul>
-                        <li>15 meses baja IT</li>
-                        <li>5 meses sin trabajar</li>
-                        <li>12 meses excedencia</li>
-                        <li>1 mes reincorporación</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 2025 - Elecciones Comité + Acoso Continúa</div>
-                    <p><strong>Resultado:</strong> 6 CCOO, 3 UGT</p>
-                    <p><strong>UGT:</strong> Javier + María Angustina + Benjamín Prieto</p>
-                    <p><strong>Obstrucción:</strong> Los 3 de UGT SIN acceso email institucional</p>
-                    <p><strong>Difusión video privado:</strong> 2 días antes cierre listas</p>
-                    <p><strong>💬 Pruebas WhatsApp:</strong> 4 acosadores coordinados (Ramón, Soledad, Isabel, África)</p>
-                </div>
-                
-                <div class="timeline-item" style="background: #ffebee;">
-                    <div class="timeline-date">📍 13 Mayo 2025 - DENUNCIA CANAL ÉTICO</div>
-                    <p><strong>Javier presenta denuncia formal</strong></p>
-                    <p><strong>Acusados:</strong> Ramón Barquero, Soledad Iranzo, Mariángeles Lamolda, Isabel Suárez, África Morales</p>
-                    <p><strong>Anexos:</strong> Capturas WhatsApp + documentación</p>
-                </div>
-                
-                <div class="timeline-item" style="background: #ffcdd2;">
-                    <div class="timeline-date">📍 6 Julio 2025 - REPRESALIA (54 días después)</div>
-                    <p><strong>Francis Montoro entrega documento de advertencia de sanción</strong></p>
-                    <p><strong>Sin testigos, sin firma, sin representante sindical</strong></p>
-                    <p><strong>Quejas de:</strong> Ramón Barquero + África Morales</p>
-                    <p><strong>Advertencia:</strong> Posible sanción si "se repiten hechos"</p>
-                    <p><strong>⚠️ ANTECEDENTES:</strong> 2 intentos previos de sanción (1 muy grave + 1 leve) retirados al exigir decisión judicial</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">📍 3 Noviembre 2025 - ACTUALIDAD</div>
-                    <p><strong>173 DÍAS (casi 6 meses) SIN RESPUESTA Canal Ético</strong></p>
-                    <p><strong>Acoso institucional continúa</strong></p>
-                </div>
-                
-                <div class="timeline-item" style="background: #fff3cd;">
-                    <div class="timeline-date">📍 4 Noviembre 2025 - Reunión con Dirección</div>
-                    <p><strong>Convocatoria:</strong> Tema desconocido</p>
-                    <p><strong>Asiste:</strong> Javier + Diego (representante UGT)</p>
-                    <p><strong>Estado:</strong> Pendiente</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="responsables">
-            <h2>👥 Personas Responsables del Acoso</h2>
-            
-            <h3>Responsables Institucionales (Rectorado)</h3>
-            
-            <div class="impact-grid">
-                <div class="impact-card" style="background: #ffebee; border-top: 4px solid #c62828;">
-                    <h4>Pilar Aranda</h4>
-                    <p><strong>Cargo:</strong> Rectora Universidad Granada (2021)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Encerrona 3 marzo 2021</li>
-                        <li>Reprensión pública institucional</li>
-                        <li>Menosprecio ante testigos</li>
-                        <li>Respaldo acoso desde Rectorado</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #ffebee; border-top: 4px solid #c62828;">
-                    <h4>Dorothy Kelly</h4>
-                    <p><strong>Cargo:</strong> Vicerrectora Internacionalización (2021)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Presente encerrona 3 marzo 2021</li>
-                        <li>Respaldo institucional</li>
-                        <li>Testigo/cómplice humillación</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #ffcdd2; border-top: 4px solid #b71c1c;">
-                    <h4>Juan Sánchez</h4>
-                    <p><strong>Cargo:</strong> Co-director CLM (2021)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Encerrona 3 marzo 2021</li>
-                        <li>Menosprecio público: "no eres tan buen profesor"</li>
-                        <li><strong>⚠️ VIOLACIÓN LOPD:</strong> Reveló encuestas satisfacción (dato protegido)</li>
-                        <li>Delante Rectora + testigos UGT</li>
-                    </ul>
-                    <p><strong>Responsabilidad:</strong> Delito Art. 197 CP + infracción LOPD grave</p>
-                </div>
-                
-                <div class="impact-card" style="background: #ffebee; border-top: 4px solid #c62828;">
-                    <h4>Francis Montoro</h4>
-                    <p><strong>Cargo:</strong> Director CLM</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Encerrona 3 marzo 2021</li>
-                        <li>Ejecutó represalia 6 julio 2025</li>
-                        <li>Documento sin testigos ni firma</li>
-                        <li>Ignora denuncia Canal Ético (6 meses)</li>
-                        <li>Complicidad vigilancia redes</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Responsables CCOO (Acoso Sindical)</h3>
-            
-            <div class="impact-grid">
-                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
-                    <h4>Mariángeles Lamolda González</h4>
-                    <p><strong>Cargo:</strong> Presidenta Comité Empresa (CCOO)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Sabotaje electoral 2020</li>
-                        <li>🎤 ADMITE en grabación</li>
-                        <li>Niega email institucional a 3 UGT</li>
-                        <li>Alentó difusión video 2025</li>
-                        <li>Coordinación general acoso</li>
-                    </ul>
-                    <p><strong>Responsabilidad:</strong> Líder mobbing sindical 5 años</p>
-                </div>
-                
-                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
-                    <h4>Ramón Barquero</h4>
-                    <p><strong>Cargo:</strong> Miembro Comité (CCOO)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Difundió video privado sin consentimiento</li>
-                        <li>Primera difusión al PAS</li>
-                        <li>Presentó queja falsa (represalia)</li>
-                        <li>💬 Pruebas WhatsApp</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
-                    <h4>Soledad Iranzo Bel</h4>
-                    <p><strong>Cargo:</strong> Profesora, ex-subdirectora Español</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Difusión video a profesorado</li>
-                        <li>Comentarios despectivos públicos</li>
-                        <li>⚠️ Informó vigilancia redes desde Dirección</li>
-                        <li>Retiró actividad cultural a Javier</li>
-                        <li>💬 Pruebas WhatsApp</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
-                    <h4>Isabel Álvarez Suárez</h4>
-                    <p><strong>Cargo:</strong> Secretaria Comité + Coordinadora PAS</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>⚠️ INCOMPATIBILIDAD cargos</li>
-                        <li>Instó a compartir video</li>
-                        <li>Coordinación acoso</li>
-                        <li>💬 Pruebas WhatsApp</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
-                    <h4>África Morales Martínez</h4>
-                    <p><strong>Cargo:</strong> Vocal Comité (CCOO)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Animó a compartir video</li>
-                        <li>Presentó queja falsa (represalia)</li>
-                        <li>💬 Pruebas WhatsApp</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
-                    <h4>Susana Díaz</h4>
-                    <p><strong>Relación:</strong> Simpatizante CCOO (estaba en listas)</p>
-                    <p><strong>Acciones:</strong></p>
-                    <ul>
-                        <li>Increpación pública (huelga Palestina)</li>
-                        <li>Provocación mientras ejercía función sindical</li>
-                        <li>Patrón provocación</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Otras Víctimas del Acoso</h3>
-            
-            <div class="evidence-box">
-                <p><strong>María Angustina García</strong></p>
-                <ul>
-                    <li>Expulsada CCOO 2020 por lealtad</li>
-                    <li>Miembro Comité UGT actual</li>
-                    <li>Sufre misma obstrucción (sin email institucional)</li>
-                </ul>
-                
-                <p style="margin-top: 1rem;"><strong>Benjamín Prieto</strong></p>
-                <ul>
-                    <li>Miembro Comité UGT actual</li>
-                    <li>Sufre obstrucción sistemática</li>
-                    <li>Sin acceso email institucional</li>
-                </ul>
-            </div>
-            
-            <h3>Testigos Clave</h3>
-            
-            <div class="evidence-box">
-                <p><strong>Luis Miguel González Rubio</strong></p>
-                <ul>
-                    <li>Secretario General UGT Granada</li>
-                    <li>Testigo encerrona 3 marzo 2021</li>
-                    <li>Máxima credibilidad institucional</li>
-                </ul>
-                
-                <p style="margin-top: 1rem;"><strong>José Antonio Rosales</strong></p>
-                <ul>
-                    <li>Primer representante UGT en Comité (2020)</li>
-                    <li>Testigo encerrona 3 marzo 2021</li>
-                    <li>Actualmente jubilado</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="impacto">
-            <h2>💔 Impacto del Acoso Laboral</h2>
-            
-            <div class="impact-grid">
-                <div class="impact-card" style="background: #fff5f5; border-top: 4px solid #e53e3e;">
-                    <h4>🏥 Salud (Documentado)</h4>
-                    <ul>
-                        <li><strong>Crisis de pánico</strong> (diagnóstico médico)</li>
-                        <li><strong>Cuadro ansioso-depresivo reactivo al mobbing</strong></li>
-                        <li>15 meses baja laboral IT</li>
-                        <li>Tratamiento: 2 psicólogos + 1 psiquiatra</li>
-                        <li>12 meses excedencia por imposibilidad reincorporación</li>
-                        <li>Tratamiento continuado problemas sueño/ansiedad</li>
-                        <li><strong>Total: 34 meses afectación grave</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #fffaf0; border-top: 4px solid #ed8936;">
-                    <h4>💰 Económico</h4>
-                    <ul>
-                        <li>15 meses baja laboral IT: Reducción ingresos</li>
-                        <li>1 mes sin sueldo</li>
-                        <li>12 meses excedencia: Sin ingresos</li>
-                        <li>Gastos médicos: Tratamientos psicológicos y psiquiátricos</li>
-                        <li>Gastos futuros: Seguimiento médico continuado</li>
-                        <li>Afectación carrera profesional</li>
-                        <li>Promociones perdidas</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-card" style="background: #f0fff4; border-top: 4px solid #48bb78;">
-                    <h4>📉 Profesional/Reputacional</h4>
-                    <ul>
-                        <li>Menoscabo público institucional (Rectora)</li>
-                        <li>Difusión video privado a toda plantilla</li>
-                        <li>Comentarios despectivos masivos</li>
-                        <li>Revelación encuestas (violación LOPD)</li>
-                        <li>Estigmatización ambiente laboral</li>
-                        <li>Daño credibilidad representante sindical</li>
-                        <li>Obstaculización funciones sindicales</li>
-                        <li>Creación "historial" falso (provocaciones)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="legal">
-            <h2>⚖️ Marco Legal y Vías de Reclamación</h2>
-            
-            <h3>Derechos Fundamentales Vulnerados</h3>
-            
-            <div class="evidence-box">
-                <ul>
-                    <li><strong>Art. 18 CE:</strong> Intimidad (video + vigilancia redes)</li>
-                    <li><strong>Art. 24 CE:</strong> Tutela judicial (denuncia sin respuesta 6 meses)</li>
-                    <li><strong>Art. 28 CE:</strong> Libertad sindical (sabotaje, expulsiones, exclusión)</li>
-                    <li><strong>Art. 4.2.e) ET:</strong> Protección frente acoso</li>
-                    <li><strong>Art. 4.2.g) ET:</strong> Protección represalias (VULNERADO)</li>
-                    <li><strong>Art. 173.1 CP:</strong> Delito de acoso</li>
-                    <li><strong>Art. 197 CP:</strong> Revelación secretos (video + encuestas + vigilancia)</li>
-                    <li><strong>Art. 208 CP:</strong> Injurias</li>
-                    <li><strong>Art. 314 CP:</strong> Delito contra derechos trabajadores (exclusión negociación)</li>
-                    <li><strong>LOLS Art. 10, 12:</strong> Garantías representantes + conductas antisindicales</li>
-                    <li><strong>Ley 2/2023:</strong> Protección informantes</li>
-                </ul>
-            </div>
-            
-            <h3>Vías de Reclamación Simultáneas</h3>
-            
-            <p><strong>1. Jurisdicción Social (Preferente):</strong></p>
-            <ul>
-                <li>Demanda tutela derechos fundamentales (Art. 177 LJS)</li>
-                <li>Procedimiento preferente y urgente</li>
-                <li>Inversión carga de la prueba</li>
-                <li>Indemnización + cese acoso + medidas cautelares</li>
-            </ul>
-            
-            <p><strong>2. Vía Penal (Querella):</strong></p>
-            <ul>
-                <li>Delito acoso (Art. 173.1 CP)</li>
-                <li>Revelación secretos (Art. 197 CP) - video + encuestas + vigilancia</li>
-                <li>Injurias (Art. 208 CP)</li>
-                <li>Contra derechos trabajadores (Art. 314 CP)</li>
-                <li>Responsabilidad civil derivada</li>
-            </ul>
-            
-            <p><strong>3. Vía Administrativa:</strong></p>
-            <ul>
-                <li>Inspección de Trabajo (incumplimiento PRL + discriminación sindical)</li>
-                <li>Agencia Protección de Datos (2 violaciones LOPD documentadas)</li>
-            </ul>
-        </section>
-        
-        <section id="peticiones">
-            <h2>📢 Peticiones a la Dirección</h2>
-            
-            <div class="represalia-box">
-                <h3 style="margin-top: 0; color: #d32f2f;">REQUERIMIENTO FORMAL</h3>
-                <p><strong>Dirigido a:</strong> Dirección del Centro de Lenguas Modernas</p>
-                <p><strong>Fecha:</strong> 3 de noviembre de 2025</p>
-                
-                <h4 style="margin-top: 1.5rem;">MEDIDAS INMEDIATAS (48 horas):</h4>
-                <ul>
-                    <li>✓ Respuesta formal a denuncia Canal Ético (13 mayo 2025 - 173 días sin respuesta)</li>
-                    <li>✓ Activación Protocolo Acoso Laboral</li>
-                    <li>✓ Acceso inmediato email institucional para 3 miembros UGT del Comité</li>
-                    <li>✓ Suspensión procedimientos disciplinarios contra denunciante (represalia)</li>
-                    <li>✓ Garantía escrita de no represalias</li>
-                </ul>
-                
-                <h4>MEDIDAS CAUTELARES (7 días):</h4>
-                <ul>
-                    <li>✓ Separación preventiva víctimas-acosadores</li>
-                    <li>✓ Prohibición expresa nuevas conductas acoso</li>
-                    <li>✓ Cese inmediato vigilancia redes sociales</li>
-                    <li>✓ Supervisión ambiente laboral CLM</li>
-                </ul>
-                
-                <h4>INVESTIGACIÓN (30 días):</h4>
-                <ul>
-                    <li>✓ Investigación exhaustiva hechos 2020-2025</li>
-                    <li>✓ Audiencia todas las partes + testigos</li>
-                    <li>✓ Revisión gestión anterior (Pilar Aranda)</li>
-                    <li>✓ Sanciones disciplinarias a responsables</li>
-                    <li>✓ Informe conclusivo por escrito</li>
-                    <li>✓ Resolución incompatibilidad Isabel Suárez</li>
-                </ul>
-                
-                <h4>REPARACIÓN INTEGRAL:</h4>
-                <ul>
-                    <li>✓ Indemnización por daños causados</li>
-                    <li>✓ Rectificación pública difamaciones</li>
-                    <li>✓ Restablecimiento imagen profesional</li>
-                    <li>✓ Anulación documento represalia (6 julio 2025)</li>
-                    <li>✓ Compensación tiempo sin trabajar</li>
-                    <li>✓ Cobertura gastos médicos</li>
-                </ul>
-                
-                <h4>GARANTÍAS FUTURO:</h4>
-                <ul>
-                    <li>✓ Evaluación riesgos psicosociales CLM</li>
-                    <li>✓ Formación obligatoria prevención acoso</li>
-                    <li>✓ Auditoría externa clima laboral</li>
-                    <li>✓ Garantías funcionamiento democrático Comité</li>
-                    <li>✓ Protocolo efectivo Canal Ético</li>
-                </ul>
-                
-                <div class="evidence-box" style="margin-top: 2rem;">
-                    <p style="font-size: 1.1rem;"><strong>En caso de no obtener respuesta satisfactoria, se procederá con:</strong></p>
-                    <ul>
-                        <li>Demanda tutela derechos fundamentales (Juzgado Social)</li>
-                        <li>Querella criminal (Juzgado Instrucción)</li>
-                        <li>Denuncia Inspección de Trabajo</li>
-                        <li>Denuncia Agencia Protección de Datos</li>
-                        <li>Conflicto colectivo UGT</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="conclusion">
-            <h2>✍️ Conclusión</h2>
-            
-            <p style="font-size: 1.2rem; line-height: 1.8;">
-                Este caso constituye un <strong>supuesto paradigmático de acoso laboral institucional</strong> de especial gravedad:
-            </p>
-            
-            <ul style="margin-top: 1.5rem; font-size: 1.05rem;">
-                <li>✓ <strong>5 años continuados</strong> (2020-2025)</li>
-                <li>✓ <strong>Acoso desde Rectorado</strong> (Pilar Aranda + 3 cargos institucionales)</li>
-                <li>✓ <strong>Prueba médica irrefutable:</strong> Diagnóstico "mobbing laboral"</li>
-                <li>✓ <strong>34 meses sin trabajar:</strong> 15 baja + 12 excedencia + 5 sin ingresos</li>
-                <li>✓ <strong>Múltiples víctimas:</strong> Javier + María Angustina + Benjamín</li>
-                <li>✓ <strong>Testigos máximo nivel:</strong> Secretario General UGT Granada</li>
-                <li>✓ <strong>Represalia documentada:</strong> Denuncia ignorada → advertencia sanción 54 días</li>
-                <li>✓ <strong>Coordinación CCOO:</strong> Pruebas WhatsApp 4 acosadores</li>
-                <li>✓ <strong>2 violaciones LOPD:</strong> Video + encuestas + vigilancia redes</li>
-                <li>✓ <strong>Exclusión negociación colectiva:</strong> Delito Art. 314 CP</li>
-                <li>✓ <strong>Sabotaje electoral admitido:</strong> Grabación Mariángeles Lamolda</li>
-                <li>✓ <strong>Intentos sanción previos:</strong> 2 sanciones retiradas al exigir decisión judicial</li>
-            </ul>
-            
-            <p style="margin-top: 2rem; font-size: 1.2rem; text-align: center; font-weight: bold; color: #1565c0;">
-                Se solicita justicia, reparación integral y garantías efectivas de no repetición.
-            </p>
-        </section>
-        
-        <section id="anexos" style="background: #f8f9fa;">
-            <h2>📂 Documentación Anexa Disponible</h2>
-            
-            <h3>ANEXO I - Prueba Médica (CRÍTICA)</h3>
-            <ul>
-                <li>☑ Informe derivación MAP 11/10/2021</li>
-                <li>☑ Diagnóstico: "Cuadro ansioso-depresivo reactivo al mobbing laboral"</li>
-                <li>☑ Informes evolución psicólogo #1</li>
-                <li>☑ Informes evolución psicólogo #2</li>
-                <li>☑ Informes psiquiátricos</li>
-                <li>☑ Informe alta 13/01/2023 (15 meses tratamiento)</li>
-                <li>☑ Informes seguimiento posterior</li>
-            </ul>
-            
-            <h3>ANEXO II - Represalia Documentada</h3>
-            <ul>
-                <li>☑ Denuncia Canal Ético 13 mayo 2025 (con anexos probatorios)</li>
-                <li>☑ Documento Francis Montoro 6 julio 2025 (sin testigos, sin firma)</li>
-                <li>☑ Registro 173 días sin respuesta (hasta 3 nov 2025)</li>
-                <li>☑ Comunicaciones reclamando respuesta</li>
-                <li>☑ Documentación 2 intentos sanción previos retirados</li>
-            </ul>
-            
-            <h3>ANEXO III - Encerrona 3 Marzo 2021</h3>
-            <ul>
-                <li>☑ Email/comunicación solicitando reunión con Rectora</li>
-                <li>☑ Testimonio Luis Miguel González Rubio (Sec. Gral. UGT Granada)</li>
-                <li>☑ Testimonio José Antonio Rosales</li>
-                <li>☑ Acta/notas reunión (si existe)</li>
-                <li>☑ Comunicaciones posteriores</li>
-            </ul>
-            
-            <h3>ANEXO IV - Exclusión Negociación Convenio</h3>
-            <ul>
-                <li>☑ Email solicitando asistir a negociaciones</li>
-                <li>☑ Respuesta denegando acceso</li>
-                <li>☑ Convenio colectivo firmado 2024 sin firma UGT</li>
-                <li>☑ Documentación composición mesa negociación</li>
-                <li>☑ Acta constitución Sección Sindical UGT (febrero 2021)</li>
-                <li>☑ Nombramiento Secretario General (Javier)</li>
-            </ul>
-            
-            <h3>ANEXO V - Sabotaje Electoral 2020</h3>
-            <ul>
-                <li>☑ GRABACIÓN: Mariángeles Lamolda admite sabotaje</li>
-                <li>☑ Transcripción grabación</li>
-                <li>☑ Documentación expulsión Javier (CCOO)</li>
-                <li>☑ Documentación expulsión María Angustina (CCOO)</li>
-                <li>☑ Listas electorales originales vs rival</li>
-                <li>☑ Actas sindicales relevantes</li>
-            </ul>
-            
-            <h3>ANEXO VI - Difusión Video 2025</h3>
-            <ul>
-                <li>☑ Video original (poema)</li>
-                <li>☑ Capturas WhatsApp Ramón Barquero</li>
-                <li>☑ Capturas WhatsApp Soledad Iranzo</li>
-                <li>☑ Capturas WhatsApp Isabel Suárez</li>
-                <li>☑ Capturas WhatsApp África Morales</li>
-                <li>☑ Cadena difusión documentada</li>
-                <li>☑ Fecha: 2 días antes cierre listas</li>
-            </ul>
-            
-            <h3>ANEXO VII - Violaciones LOPD</h3>
-            <ul>
-                <li>☑ Capturas WhatsApp Soledad: vigilancia redes sociales desde Dirección</li>
-                <li>☑ Capturas WhatsApp Soledad: retirada actividad cultural</li>
-                <li>☑ Testimonio Juan Sánchez reveló encuestas (encerrona 3 marzo)</li>
-            </ul>
-            
-            <h3>ANEXO VIII - Obstrucción Sindical</h3>
-            <ul>
-                <li>☑ Solicitudes acceso email institucional (3 miembros UGT)</li>
-                <li>☑ Denegaciones Mariángeles Lamolda</li>
-                <li>☑ Prueba acceso diferencial (CCOO sí, UGT no)</li>
-                <li>☑ Actas Comité con obstrucciones</li>
-                <li>☑ Documentación incompatibilidad Isabel Suárez</li>
-            </ul>
-            
-            <h3>ANEXO IX - Testimonios</h3>
-            <ul>
-                <li>☑ María Angustina García (víctima, testigo)</li>
-                <li>☑ Benjamín Prieto (víctima obstrucción)</li>
-                <li>☑ Luis Miguel González Rubio (testigo encerrona)</li>
-                <li>☑ José Antonio Rosales (testigo encerrona)</li>
-                <li>☑ Otros testigos disponibles</li>
-            </ul>
-        </section>
-        
-        <section id="contacto">
-            <h2>📞 Información de Contacto</h2>
-            
-            <div class="impact-grid">
-                <div class="impact-card" style="background: #e3f2fd; border-top: 4px solid #1976d2;">
-                    <h4>Denunciante Principal</h4>
-                    <p><strong>Javier Benítez Láinez</strong></p>
-                    <p>Profesor Titular Lengua y Literatura Española</p>
-                    <p>Secretario General Sección Sindical UGT</p>
-                    <p>Miembro Comité de Empresa (UGT)</p>
-                    <p><strong>Email:</strong> benitezl@go.ugr.es</p>
-                    <p><strong>Centro:</strong> Centro de Lenguas Modernas (CLM)</p>
-                    <p><strong>Universidad de Granada</strong></p>
-                </div>
-                
-                <div class="impact-card" style="background: #fff3e0; border-top: 4px solid #f57c00;">
-                    <h4>Otras Víctimas</h4>
-                    <p><strong>María Angustina García</strong></p>
-                    <p>Miembro Comité Empresa (UGT)</p>
-                    <p>Expulsada CCOO 2020</p>
-                    <p style="margin-top: 1rem;"><strong>Benjamín Prieto</strong></p>
-                    <p>Miembro Comité Empresa (UGT)</p>
-                </div>
-                
-                <div class="impact-card" style="background: #e8f5e9; border-top: 4px solid #388e3c;">
-                    <h4>Representación Sindical</h4>
-                    <p><strong>UGT Granada</strong></p>
-                    <p>Secretario General:</p>
-                    <p><strong>Luis Miguel González Rubio</strong></p>
-                    <p style="margin-top: 1rem;"><strong>Representante sindical:</strong></p>
-                    <p><strong>Diego</strong> (delegado UGT)</p>
-                    <p style="margin-top: 1rem;"><strong>Sección Sindical UGT CLM</strong></p>
-                    <p>Constituida febrero 2021</p>
-                    <p>Registrada oficialmente</p>
-                </div>
-            </div>
-            
-            <div class="evidence-box" style="margin-top: 2rem;">
-                <h4>Destinatarios de este Documento</h4>
-                <ul>
-                    <li><strong>Dirección</strong> - Centro de Lenguas Modernas,UGR</li>
-                    <li><strong>Servicios Jurídicos UGT</strong> - Granada</li>
-                    <li><strong>Asesoría legal</strong> - Para acciones judiciales</li>
-                </ul>
-            </div>
-        </section>
-        
-        <footer>
-            <p style="font-size: 1.2rem; font-weight: bold;">📄 DOCUMENTACIÓN DE ACOSO LABORAL INSTITUCIONAL</p>
-            <p style="margin-top: 1rem;">Javier Benítez Láinez</p>
-            <p>Centro de Lenguas Modernas - Universidad de Granada</p>
-            <p style="margin-top: 1rem;">Caso: 2020 - 2025 (5 años)</p>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">Documento confidencial protegido por secreto profesional</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;"><strong>Versión definitiva:</strong> 3 de noviembre de 2025</p>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">Para imprimir: Ctrl+P (Windows) / Cmd+P (Mac)</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">El documento se optimiza automáticamente para impresión</p>
-        </footer>
+
+        <div class="access-attempts" id="accessAttempts">
+            Intentos restantes: <span id="remainingAttempts">3</span>
+        </div>
     </div>
+
+    <script>
+        // Configuración de seguridad
+        const SECURITY_CONFIG = {
+            // Credenciales únicas (en producción deberían estar cifradas)
+            USERNAME: 'denuncia2025',
+            PASSWORD: 'CLM_JBL_2025_DOCUMENTACION_RESTRINGIDA',
+
+            // Límites de seguridad
+            MAX_IPS: 5,
+            MAX_ATTEMPTS: 3,
+            LOCKOUT_DURATION: 15 * 60 * 1000, // 15 minutos
+
+            // Almacenamiento local (en producción sería base de datos segura)
+            STORAGE_KEY: 'denuncia_access_control',
+
+            // IPs preautorizadas (administrador + pruebas locales)
+            PREAUTHORIZED_IPS: [
+                '127.0.0.1', // Localhost
+                '::1',       // IPv6 localhost
+                'localhost', // Nombre de host local
+                // Añadir aquí tu IP real cuando la conozcas
+            ],
+
+            // Usuario administrador (sin límite de IPs)
+            ADMIN_USERNAME: 'denuncia2025',
+            ADMIN_IP_BYPASS: true // El administrador no cuenta para el límite de IPs
+        };
+
+        // Estado del sistema
+        let accessState = {
+            attempts: 0,
+            lockedUntil: null,
+            allowedIPs: [],
+            lastAccess: null,
+            sessionStart: null
+        };
+
+        // Cargar estado del almacenamiento local
+        function loadAccessState() {
+            const stored = localStorage.getItem(SECURITY_CONFIG.STORAGE_KEY);
+            if (stored) {
+                accessState = { ...accessState, ...JSON.parse(stored) };
+            }
+        }
+
+        // Guardar estado del sistema
+        function saveAccessState() {
+            localStorage.setItem(SECURITY_CONFIG.STORAGE_KEY, JSON.stringify(accessState));
+        }
+
+        // Obtener IP del cliente
+        async function getClientIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Error obteniendo IP:', error);
+                return 'unknown-' + Date.now();
+            }
+        }
+
+        // Verificar si el usuario está bloqueado
+        function isLockedOut() {
+            if (!accessState.lockedUntil) return false;
+            return Date.now() < accessState.lockedUntil;
+        }
+
+        // Tiempo restante de bloqueo
+        function getRemainingLockoutTime() {
+            if (!accessState.lockedUntil) return 0;
+            return Math.max(0, accessState.lockedUntil - Date.now());
+        }
+
+        // Actualizar UI con estado de bloqueo
+        function updateLockoutUI() {
+            const loginBtn = document.getElementById('loginBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const accessAttempts = document.getElementById('accessAttempts');
+
+            if (isLockedOut()) {
+                const remaining = Math.ceil(getRemainingLockoutTime() / 60000);
+                loginBtn.disabled = true;
+                loginBtn.textContent = `Bloqueado - Intente en ${remaining} min`;
+                errorMessage.style.display = 'block';
+                errorMessage.innerHTML = `Demasiados intentos fallidos. <br>Intente nuevamente en ${remaining} minutos.`;
+                accessAttempts.innerHTML = '⏰ Cuenta temporalmente bloqueada';
+            } else {
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Acceder a Documentación';
+                updateAttemptsDisplay();
+            }
+        }
+
+        // Actualizar display de intentos
+        function updateAttemptsDisplay() {
+            const remaining = SECURITY_CONFIG.MAX_ATTEMPTS - accessState.attempts;
+            document.getElementById('remainingAttempts').textContent = remaining;
+
+            if (remaining <= 1) {
+                document.getElementById('remainingAttempts').style.color = '#e74c3c';
+                document.getElementById('remainingAttempts').style.fontWeight = 'bold';
+            }
+        }
+
+        // Verificar límite de IPs
+        function isIPAllowed(currentIP) {
+            // IPs preautorizadas siempre permitidas
+            if (SECURITY_CONFIG.PREAUTHORIZED_IPS.includes(currentIP)) {
+                console.log(`IP ${currentIP} preautorizada (administrador/local)`);
+                return true;
+            }
+
+            // Si no hay IPs registradas, es la primera vez
+            if (accessState.allowedIPs.length === 0) {
+                return true;
+            }
+
+            // Si la IP ya está registrada, permitir
+            if (accessState.allowedIPs.includes(currentIP)) {
+                return true;
+            }
+
+            // Si no hay espacio para más IPs
+            if (accessState.allowedIPs.length >= SECURITY_CONFIG.MAX_IPS) {
+                return false;
+            }
+
+            // Permitir nueva IP
+            return true;
+        }
+
+        // Registrar nueva IP (con bypass para administrador)
+        function registerIP(currentIP) {
+            // No registrar IPs preautorizadas para no contar en el límite
+            if (SECURITY_CONFIG.PREAUTHORIZED_IPS.includes(currentIP)) {
+                console.log(`IP ${currentIP} es administrador, no se registra en el límite`);
+                return;
+            }
+
+            if (!accessState.allowedIPs.includes(currentIP)) {
+                accessState.allowedIPs.push(currentIP);
+                console.log(`IP ${currentIP} registrada. Total IPs autorizadas: ${accessState.allowedIPs.length}/${SECURITY_CONFIG.MAX_IPS}`);
+            }
+        }
+
+        // Función principal de login
+        async function handleLogin(event) {
+            event.preventDefault();
+
+            // Verificar bloqueo
+            if (isLockedOut()) {
+                updateLockoutUI();
+                return;
+            }
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loading = document.getElementById('loading');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Mostrar loading
+            loading.style.display = 'block';
+            document.getElementById('loginBtn').disabled = true;
+            errorMessage.style.display = 'none';
+
+            try {
+                // Obtener IP del cliente
+                const clientIP = await getClientIP();
+
+                // Simular verificación de credenciales
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // Verificar credenciales
+                if (username === SECURITY_CONFIG.USERNAME && password === SECURITY_CONFIG.PASSWORD) {
+
+                    // Verificar límite de IPs
+                    if (!isIPAllowed(clientIP)) {
+                        throw new Error('LÍMITE_DE_IPS');
+                    }
+
+                    // Registrar acceso exitoso
+                    registerIP(clientIP);
+                    accessState.attempts = 0;
+                    accessState.lockedUntil = null;
+                    accessState.lastAccess = Date.now();
+                    accessState.sessionStart = accessState.sessionStart || Date.now();
+
+                    saveAccessState();
+
+                    // Redirigir a documentación
+                    console.log(`Acceso concedido desde IP: ${clientIP}`);
+                    console.log(`IPs registradas: ${accessState.allowedIPs.join(', ')}`);
+
+                    window.location.href = 'documento.html';
+
+                } else {
+                    throw new Error('CREDENCIALES_INCORRECTAS');
+                }
+
+            } catch (error) {
+                loading.style.display = 'none';
+                document.getElementById('loginBtn').disabled = false;
+                errorMessage.style.display = 'block';
+
+                if (error.message === 'LÍMITE_DE_IPS') {
+                    errorMessage.innerHTML = `
+                        <strong>🚫 Límite de IPs Excedido</strong><br>
+                        Se alcanzó el máximo de ${SECURITY_CONFIG.MAX_IPS} direcciones IP permitidas.<br>
+                        Contacte al administrador para autorizar acceso adicional.
+                    `;
+                } else {
+                    // Incrementar intentos fallidos
+                    accessState.attempts++;
+
+                    if (accessState.attempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
+                        accessState.lockedUntil = Date.now() + SECURITY_CONFIG.LOCKOUT_DURATION;
+                        errorMessage.innerHTML = `
+                            <strong>🔒 Cuenta Bloqueada</strong><br>
+                            Demasiados intentos fallidos.<br>
+                            Intente nuevamente en 15 minutos.
+                        `;
+                    } else {
+                        const remaining = SECURITY_CONFIG.MAX_ATTEMPTS - accessState.attempts;
+                        errorMessage.innerHTML = `
+                            <strong>❌ Credenciales Incorrectas</strong><br>
+                            Le quedan ${remaining} intento${remaining > 1 ? 's' : ''}.<br>
+                            Por favor, verifique sus datos.
+                        `;
+                    }
+                }
+
+                saveAccessState();
+                updateLockoutUI();
+            }
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAccessState();
+            updateLockoutUI();
+
+            // Event listener para el formulario
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+
+            // Actualizar contador de bloqueo cada segundo
+            setInterval(() => {
+                if (isLockedOut()) {
+                    updateLockoutUI();
+                }
+            }, 1000);
+
+            // Limpiar sesión después de 24 horas
+            const oneDay = 24 * 60 * 60 * 1000;
+            if (accessState.sessionStart && (Date.now() - accessState.sessionStart) > oneDay) {
+                localStorage.removeItem(SECURITY_CONFIG.STORAGE_KEY);
+                accessState = {
+                    attempts: 0,
+                    lockedUntil: null,
+                    allowedIPs: [],
+                    lastAccess: null,
+                    sessionStart: null
+                };
+                updateLockoutUI();
+            }
+        });
+
+        // Evitar acceso directo al documento sin login
+        if (window.location.href.includes('documento.html') && !sessionStorage.getItem('authenticated')) {
+            // Verificar si viene del login
+            if (!document.referrer.includes('acceso.html')) {
+                window.location.href = 'acceso.html';
+            }
+        }
+    </script>
 </body>
 </html>

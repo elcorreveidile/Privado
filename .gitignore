@@ -1,0 +1,52 @@
+# Archivos temporales y de sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.log
+
+# Archivos de configuración locales
+.env.local
+.env.*.local
+
+# Archivos generados por el servidor
+node_modules/
+server-test.js
+*.pid
+
+# Archivos de backup o datos
+*.db
+*.sqlite
+*.sqlite3
+access_control_*.json
+
+# Archivos personales o de prueba
+test_*.html
+prueba_*.html
+*.test
+
+# Logs de acceso
+access_log.txt
+security_log.txt
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.7z
+
+# Documentos de trabajo
+draft_*
+borrador_*
+WIP_*
+
+# Archivos sensibles que no deben subirse
+*_private.*
+*_confidencial.*
+*_secreto.*
