@@ -203,6 +203,92 @@
             font-family: monospace;
             font-size: 0.75rem;
         }
+
+        /* Botones de administración */
+        .admin-toggle {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .admin-toggle-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .admin-toggle-btn:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+        .admin-login {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .admin-login h3 {
+            margin: 0 0 1rem 0;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+        .admin-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .admin-input:focus {
+            outline: none;
+            border-color: #6c757d;
+            box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.1);
+        }
+        .admin-login-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .admin-login-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .admin-header h3 {
+            margin: 0;
+            color: #495057;
+            font-size: 1.2rem;
+        }
+        .admin-logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .admin-logout-btn:hover {
+            background: #c82333;
+        }
     </style>
 </head>
 <body>
@@ -265,8 +351,25 @@
             Intentos restantes: <span id="remainingAttempts">3</span>
         </div>
 
+        <div class="admin-toggle">
+            <button onclick="toggleAdminLogin()" class="admin-toggle-btn" id="adminToggleBtn">
+                🔧 Acceso Administrador
+            </button>
+        </div>
+
+        <div class="admin-login" id="adminLogin" style="display: none;">
+            <h3>🔐 Acceso de Administrador</h3>
+            <div class="form-group">
+                <input type="password" id="adminPassword" placeholder="Contraseña de administrador" class="admin-input">
+            </div>
+            <button onclick="loginAdmin()" class="admin-login-btn">Acceder</button>
+        </div>
+
         <div class="admin-panel" id="adminPanel" style="display: none;">
-            <h3>📊 Panel de Administración</h3>
+            <div class="admin-header">
+                <h3>📊 Panel de Administración</h3>
+                <button onclick="logoutAdmin()" class="admin-logout-btn">Cerrar Sesión</button>
+            </div>
             <div class="admin-section">
                 <h4>✅ Accesos Exitosos</h4>
                 <div id="accessLogList"></div>
@@ -329,6 +432,14 @@
             accessLog: [],
             failedAttempts: []
         };
+
+        // Estado de administración
+        let adminState = {
+            isLoggedIn: false
+        };
+
+        // Contraseña de administrador
+        const ADMIN_PASSWORD = 'admin_clm_2025_secure';
 
         // Cargar estado del almacenamiento local
         function loadAccessState() {
@@ -468,10 +579,47 @@
             updateAdminPanel();
         }
 
+    // Funciones de administración
+        function toggleAdminLogin() {
+            const adminLogin = document.getElementById('adminLogin');
+            const adminToggleBtn = document.getElementById('adminToggleBtn');
+
+            if (adminLogin.style.display === 'none') {
+                adminLogin.style.display = 'block';
+                adminToggleBtn.textContent = '❌ Cancelar';
+            } else {
+                adminLogin.style.display = 'none';
+                adminToggleBtn.textContent = '🔧 Acceso Administrador';
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        function loginAdmin() {
+            const password = document.getElementById('adminPassword').value;
+
+            if (password === ADMIN_PASSWORD) {
+                adminState.isLoggedIn = true;
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminToggleBtn').style.display = 'none';
+                updateAdminPanel();
+                document.getElementById('adminPassword').value = '';
+            } else {
+                alert('Contraseña de administrador incorrecta');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        function logoutAdmin() {
+            adminState.isLoggedIn = false;
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminToggleBtn').style.display = 'block';
+            document.getElementById('adminToggleBtn').textContent = '🔧 Acceso Administrador';
+        }
+
         // Actualizar panel de administración
         function updateAdminPanel() {
-            // Solo mostrar si hay datos de acceso
-            if (accessState.accessLog.length === 0 && accessState.failedAttempts.length === 0 && accessState.allowedIPs.length === 0) {
+            // Solo mostrar si está logueado como administrador
+            if (!adminState.isLoggedIn) {
                 document.getElementById('adminPanel').style.display = 'none';
                 return;
             }
