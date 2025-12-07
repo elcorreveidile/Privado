@@ -399,11 +399,11 @@
             <div class="points-info">
                 <div class="point-card">
                     <div class="point-label">Petting</div>
-                    <div class="point-value">3 pts</div>
+                    <div class="point-value">0.3 pts</div>
                 </div>
                 <div class="point-card">
                     <div class="point-label">Masturbación</div>
-                    <div class="point-value">5 pts</div>
+                    <div class="point-value">0.5 pts</div>
                 </div>
                 <div class="point-card">
                     <div class="point-label">Completa</div>
@@ -412,10 +412,10 @@
             </div>
 
             <div class="controls">
-                <button class="btn btn-petting" onclick="agregarRelacion(3)">
+                <button class="btn btn-petting" onclick="agregarRelacion(0.3)">
                     <span><span class="emoji">💋</span> Petting</span>
                 </button>
-                <button class="btn btn-masturbacion" onclick="agregarRelacion(5)">
+                <button class="btn btn-masturbacion" onclick="agregarRelacion(0.5)">
                     <span><span class="emoji">✊</span> Masturbación</span>
                 </button>
                 <button class="btn btn-completa" onclick="agregarRelacion(1)">
@@ -444,7 +444,7 @@
         // Actualizar displays
         function actualizarDisplays() {
             document.getElementById('patrimonioDisplay').textContent = formatearNumero(patrimonio);
-            document.getElementById('relacionesDisplay').textContent = relacionesPuntos;
+            document.getElementById('relacionesDisplay').textContent = relacionesPuntos.toFixed(1);
         }
 
         // Formatear números con separadores de miles
@@ -497,7 +497,7 @@
             actualizarDisplays();
 
             // Mensaje de confirmación
-            let tipo = puntos === 3 ? 'Petting' : puntos === 5 ? 'Masturbación' : 'Relación Completa';
+            let tipo = puntos === 0.3 ? 'Petting' : puntos === 0.5 ? 'Masturbación' : 'Relación Completa';
             console.log(`✅ ${tipo} añadido (+${puntos} pts)`);
         }
 
